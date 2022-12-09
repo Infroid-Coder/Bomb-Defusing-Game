@@ -70,3 +70,15 @@ body{
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+/*  media queries */
+
+@media screen and (max-width: 445px){
+    #box{
+        width: 350px;
+        height: 470px;
+    }
+    #img{
+        width: 250px;
+    }
+}
