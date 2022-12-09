@@ -1,0 +1,72 @@
+body{
+    background: linear-gradient(70deg,rgb(34, 34, 34), rgb(66, 66, 66));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#img{
+    width: 300px;
+    text-align: center;
+    margin-left: 60px;
+}
+#align{
+    text-align: center;
+}
+#psw{
+    background: rgb(41, 41, 41);
+    border: solid 1px rgb(255, 255, 255);
+    color: white;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+#enter{
+    /* background: rgb(41, 41, 41); */
+    background: none;
+    color: white;
+    border: solid 2px white;
+    padding: 5px 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    transition: 0.3s;
+}
+#enter:focus{
+    outline: none;
+    width: 250px;
+}
+#box{
+    text-align: center;
+    display: inline-block;
+    border: solid 5px white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 400px;
+    height: 500px;
+}
+/* #img-div{
+    background: rgb(71, 71, 71);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+} */
+#timer{
+    font-size: 20px;
+    border: solid white 3px;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    padding: 5px 35px;
+    margin-bottom: 5px;
+}
+#stat{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
