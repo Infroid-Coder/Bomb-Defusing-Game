@@ -29,7 +29,10 @@ function timer(){
     let otpt = document.getElementById("timer");
     let img = document.getElementById("img");
     let form = document.getElementById("psw");
-    let mQ = window.matchMedia("(max-width: 445px)")
+    let mQ1 = window.matchMedia("(max-width: 445px)");
+    let mQ2 = window.matchMedia("(max-width: 400px)");
+    let mQ3 = window.matchMedia("(max-width: 360px)");
+
     maxTime = maxTime - 1;
     if(maxTime == 0){
         clearInterval(interval);
@@ -38,8 +41,14 @@ function timer(){
         img.style.marginLeft = "5px";
         img.style.width = "280px";
 
-        if(mQ.matches){
-            img.style.width = "230px";
+        if(mQ1.matches){
+            img.style.width = "210px";
+        }
+        if(mQ2.matches){
+            img.style.width = "160px";
+        }
+        if(mQ3.matches){
+            img.style.width = "150px";
         }
         setTimeout(function(){
             otpt.innerHTML = "00:20";
@@ -50,8 +59,14 @@ function timer(){
             img.src = "Bomb.gif";
             img.style.marginLeft = "60px";
             img.style.width = "300px";
-            if(mQ.matches){
+            if(mQ1.matches){
                 img.style.width = "250px";
+            }
+            if(mQ2.matches){
+                img.style.width = "230px";
+            }
+            if(mQ3.matches){
+                img.style.width = "200px";
             }
         }, 5000)
     }
