@@ -29,6 +29,7 @@ function timer(){
     let otpt = document.getElementById("timer");
     let img = document.getElementById("img");
     let form = document.getElementById("psw");
+    let mQ = window.matchMedia("(max-width: 445px)")
     maxTime = maxTime - 1;
     if(maxTime == 0){
         clearInterval(interval);
@@ -37,6 +38,9 @@ function timer(){
         img.style.marginLeft = "5px";
         img.style.width = "280px";
 
+        if(mQ.matches){
+            img.style.width = "230px";
+        }
         setTimeout(function(){
             otpt.innerHTML = "00:20";
             document.getElementById("stat").innerHTML = "";
@@ -46,6 +50,9 @@ function timer(){
             img.src = "Bomb.gif";
             img.style.marginLeft = "60px";
             img.style.width = "300px";
+            if(mQ.matches){
+                img.style.width = "250px";
+            }
         }, 5000)
     }
     if(maxTime < 10){
