@@ -43,7 +43,7 @@ function timer(){
             maxTime = 20;
             interval = setInterval(timer, 1000);
             pswGen();
-            img.src = "Bombb.gif";
+            img.src = "Bomb.gif";
             img.style.marginLeft = "60px";
             img.style.width = "300px";
         }, 5000)
