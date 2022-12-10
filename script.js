@@ -1,3 +1,4 @@
+
 let pswValue, random, psw;
 function pswGen(){
     let abc = "1234567890";
@@ -19,8 +20,8 @@ function pswGen(){
         }
         pswValue = document.getElementById("psw").innerHTML;
     }
-    console.log(pswLength)
 }
+document.onload = pswGen();
 
 let maxTime = 20;
 let interval = setInterval(timer, 1000);
@@ -28,7 +29,8 @@ let interval = setInterval(timer, 1000);
 function timer(){
     let otpt = document.getElementById("timer");
     let img = document.getElementById("img");
-    let form = document.getElementById("psw");
+    let form = document.getElementById("enter");
+    let psw = document.getElementById("psw")
     let mQ1 = window.matchMedia("(max-width: 445px)");
     let mQ2 = window.matchMedia("(max-width: 400px)");
     let mQ3 = window.matchMedia("(max-width: 360px)");
@@ -40,6 +42,8 @@ function timer(){
         img.src = "Exploded.png";
         img.style.marginLeft = "5px";
         img.style.width = "280px";
+        form.style.display = "none";
+        psw.style.display = "none";
 
         if(mQ1.matches){
             img.style.width = "210px";
@@ -59,6 +63,8 @@ function timer(){
             img.src = "Bomb.gif";
             img.style.marginLeft = "60px";
             img.style.width = "300px";
+            form.style.display = "inline-block";
+            psw.style.display = "inline-block";
             if(mQ1.matches){
                 img.style.width = "250px";
             }
