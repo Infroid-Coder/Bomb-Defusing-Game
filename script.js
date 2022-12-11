@@ -1,4 +1,6 @@
 let pswValue, random, psw;
+let scoreOtpt = document.getElementById("scr");
+localStorage.score;
 function pswGen(){
     let abc = "1234567890";
     let pswLength = 6;
@@ -21,7 +23,7 @@ function pswGen(){
     }
 }
 
-let maxTime = 20;
+let maxTime = 21;
 let interval = setInterval(timer, 1000);
 
 function timer(){
@@ -43,19 +45,24 @@ function timer(){
         psw.style.display = "none";
         form.style.display = "none";
 
+        if(Number(localStorage.score) >= 5){
+            localStorage.score = localStorage.score - 5;
+            scoreOtpt.innerHTML = localStorage.score;
+        }
+
         if(mQ1.matches){
-            img.style.width = "280px";
+            img.style.width = "270px";
         }
         if(mQ2.matches){
-            img.style.width = "230px";
+            img.style.width = "220px";
         }
         if(mQ3.matches){
-            img.style.width = "220px";
+            img.style.width = "210px";
         }
         setTimeout(function(){
             otpt.innerHTML = "00:20";
             document.getElementById("stat").innerHTML = "";
-            maxTime = 20;
+            maxTime = 21;
             interval = setInterval(timer, 1000);
             pswGen();
             img.src = "Bomb.gif";
@@ -83,8 +90,6 @@ function timer(){
 }
 
 let input = document.getElementById("enter");
-let scoreOtpt = document.getElementById("scr");
-localStorage.score;
 input.onkeyup = function(){
     if(input.value == pswValue){
         document.getElementById("stat").innerHTML = "Bomb Defused";
@@ -95,21 +100,121 @@ input.onkeyup = function(){
         },1000);
             if(maxTime >= 15){
                 localStorage.score = Number(localStorage.score) + 10;
+                GrayOutLL();
+                Harden();
             }
             if(maxTime >= 10 && maxTime < 15){
                 localStorage.score = Number(localStorage.score) + 8;
+                GrayOutLL();
+                Harden();
             }
             if(maxTime >= 5 && maxTime < 10){
                 localStorage.score = Number(localStorage.score) + 6;
+                GrayOutLL();
+                Harden();
             }
             if(maxTime < 5){
                 localStorage.score = Number(localStorage.score) + 5;
+                GrayOutLL();
+                Harden();
             }
             scoreOtpt.innerHTML = localStorage.score;
             maxTime = 21;
+            Harden();
     }
 }
 scoreOtpt.innerHTML = localStorage.score;
 if(localStorage.score == undefined){
     localStorage.score = 0;
 }
+
+let ll1 = document.getElementById("overlay1");
+let ll2 = document.getElementById("overlay2");
+let ll3 = document.getElementById("overlay3");
+
+function GrayOutLL(){
+    if(Number(localStorage.score) < 100){
+        ll1.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line1.png")';
+        ll2.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line2.png")';
+        ll3.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line3.png")';
+        ll1.style.backgroundRepeat = "no-repeat";
+        ll1.style.backgroundSize = "40px";
+        ll2.style.backgroundRepeat = "no-repeat";
+        ll2.style.backgroundSize = "40px";
+        ll3.style.backgroundRepeat = "no-repeat";
+        ll3.style.backgroundSize = "40px";
+    }
+    if(Number(localStorage.score) >= 100 && Number(localStorage.score) < 200){
+        ll1.style.background = 'url("Life line1.png")';
+        ll2.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line2.png")';
+        ll3.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line3.png")';
+        ll1.style.backgroundRepeat = "no-repeat";
+        ll1.style.backgroundSize = "40px";
+        ll2.style.backgroundRepeat = "no-repeat";
+        ll2.style.backgroundSize = "40px";
+        ll3.style.backgroundRepeat = "no-repeat";
+        ll3.style.backgroundSize = "40px";
+    }
+    if(Number(localStorage.score) >= 200 && Number(localStorage.score) < 300){
+        ll1.style.background = 'url("Life line1.png")';
+        ll2.style.background = 'url("Life line2.png")';
+        ll3.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line3.png")';
+        ll1.style.backgroundRepeat = "no-repeat";
+        ll1.style.backgroundSize = "40px";
+        ll2.style.backgroundRepeat = "no-repeat";
+        ll2.style.backgroundSize = "40px";
+        ll3.style.backgroundRepeat = "no-repeat";
+        ll3.style.backgroundSize = "40px";
+    }
+    if(Number(localStorage.score) >= 300){
+        ll1.style.background = 'url("Life line1.png")';
+        ll2.style.background = 'url("Life line2.png")';
+        ll3.style.background = 'url("Life line3.png")';
+        ll1.style.backgroundRepeat = "no-repeat";
+        ll1.style.backgroundSize = "40px";
+        ll2.style.backgroundRepeat = "no-repeat";
+        ll2.style.backgroundSize = "40px";
+        ll3.style.backgroundRepeat = "no-repeat";
+        ll3.style.backgroundSize = "40px";
+    }
+}
+function lifeLines(){
+    ll1.onclick = function(){
+        if(Number(localStorage.score) >= 100){
+            maxTime = maxTime + 4;
+            localStorage.score = Number(localStorage.score) - 100;
+            scoreOtpt.innerHTML = localStorage.score;
+            GrayOutLL();
+        }
+    }
+    ll2.onclick = function(){
+        if(Number(localStorage.score) >= 200){
+            maxTime = maxTime + 6;
+            localStorage.score = Number(localStorage.score) - 200;
+            scoreOtpt.innerHTML = localStorage.score;    
+            GrayOutLL();
+        }
+    }
+    ll3.onclick = function(){
+        if(Number(localStorage.score) >= 300){
+            maxTime = maxTime + 11;
+            localStorage.score = Number(localStorage.score) - 300;
+            scoreOtpt.innerHTML = localStorage.score;
+            GrayOutLL();
+        }
+    }
+}
+function Harden(){
+    if(localStorage.score >= 300){
+        maxTime = 20;
+    }
+    if(localStorage.score >= 400){
+        maxTime = 19;
+    }
+    if(localStorage.score >= 500){
+        maxTime = 18;
+    }
+}
+lifeLines();
+GrayOutLL();
+Harden();
