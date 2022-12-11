@@ -21,10 +21,10 @@ body{
     font-size: 20px;
     margin-bottom: 5px;
     border-radius: 5px;
-    user-select: none;
+    /* user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
+    -ms-user-select: none; */
 }
 #enter{
     /* background: rgb(41, 41, 41); */
@@ -82,6 +82,71 @@ body{
 }
 #align-score{
     text-align: right;
+}
+/* #ll1,#ll2,#ll3{
+    width: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+    cursor: pointer;
+    z-index: -1;
+}
+#ll1:hover,#ll2:hover,#ll3:hover{
+    border: solid 2px rgb(187, 255, 0);
+}
+#ll1:active,#ll2:active,#ll3:active{
+    border: solid 2px rgb(255, 255, 255);
+} */
+#overlay1{
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    background:url("Life line1.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 2px white;
+}
+#overlay2{
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    background:url("Life line2.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 2px white;
+}
+#overlay3{
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    background:url("Life line3.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 2px white;
+}
+#bg1{
+    display: inline-block;
+}
+#bg2{
+    display: inline-block;
+}
+#bg3{
+    display: inline-block;
+}
+#overlay1:hover,#overlay2:hover,#overlay3:hover{
+    border: solid 2px rgb(60, 255, 0);
+}
+#overlay1:active,#overlay2:active,#overlay3:active{
+    border: solid 2px rgb(255, 255, 255);
 }
 
 /*  media queries */
