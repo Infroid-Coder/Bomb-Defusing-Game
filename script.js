@@ -44,13 +44,13 @@ function timer(){
         form.style.display = "none";
 
         if(mQ1.matches){
-            img.style.width = "270px";
+            img.style.width = "280px";
         }
         if(mQ2.matches){
-            img.style.width = "220px";
+            img.style.width = "230px";
         }
         if(mQ3.matches){
-            img.style.width = "210px";
+            img.style.width = "220px";
         }
         setTimeout(function(){
             otpt.innerHTML = "00:20";
