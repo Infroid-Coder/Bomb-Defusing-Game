@@ -48,6 +48,9 @@ function timer(){
         if(Number(localStorage.score) >= 5){
             localStorage.score = localStorage.score - 5;
             scoreOtpt.innerHTML = localStorage.score;
+        } else{
+            localStorage.score = localStorage.score - localStorage.score;
+            scoreOtpt.innerHTML = localStorage.score;
         }
 
         if(mQ1.matches){
@@ -138,44 +141,44 @@ function GrayOutLL(){
         ll2.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line2.png")';
         ll3.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line3.png")';
         ll1.style.backgroundRepeat = "no-repeat";
-        ll1.style.backgroundSize = "40px";
+        ll1.style.backgroundSize = "45px";
         ll2.style.backgroundRepeat = "no-repeat";
-        ll2.style.backgroundSize = "40px";
+        ll2.style.backgroundSize = "45px";
         ll3.style.backgroundRepeat = "no-repeat";
-        ll3.style.backgroundSize = "40px";
+        ll3.style.backgroundSize = "45px";
     }
     if(Number(localStorage.score) >= 100 && Number(localStorage.score) < 200){
         ll1.style.background = 'url("Life line1.png")';
         ll2.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line2.png")';
         ll3.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line3.png")';
         ll1.style.backgroundRepeat = "no-repeat";
-        ll1.style.backgroundSize = "40px";
+        ll1.style.backgroundSize = "45px";
         ll2.style.backgroundRepeat = "no-repeat";
-        ll2.style.backgroundSize = "40px";
+        ll2.style.backgroundSize = "45px";
         ll3.style.backgroundRepeat = "no-repeat";
-        ll3.style.backgroundSize = "40px";
+        ll3.style.backgroundSize = "45px";
     }
     if(Number(localStorage.score) >= 200 && Number(localStorage.score) < 300){
         ll1.style.background = 'url("Life line1.png")';
         ll2.style.background = 'url("Life line2.png")';
         ll3.style.background = 'linear-gradient(rgb(121, 121, 121, 0.4),rgb(121, 121, 121, 0.4)) , url("Life line3.png")';
         ll1.style.backgroundRepeat = "no-repeat";
-        ll1.style.backgroundSize = "40px";
+        ll1.style.backgroundSize = "45px";
         ll2.style.backgroundRepeat = "no-repeat";
-        ll2.style.backgroundSize = "40px";
+        ll2.style.backgroundSize = "45px";
         ll3.style.backgroundRepeat = "no-repeat";
-        ll3.style.backgroundSize = "40px";
+        ll3.style.backgroundSize = "45px";
     }
     if(Number(localStorage.score) >= 300){
         ll1.style.background = 'url("Life line1.png")';
         ll2.style.background = 'url("Life line2.png")';
         ll3.style.background = 'url("Life line3.png")';
         ll1.style.backgroundRepeat = "no-repeat";
-        ll1.style.backgroundSize = "40px";
+        ll1.style.backgroundSize = "45px";
         ll2.style.backgroundRepeat = "no-repeat";
-        ll2.style.backgroundSize = "40px";
+        ll2.style.backgroundSize = "45px";
         ll3.style.backgroundRepeat = "no-repeat";
-        ll3.style.backgroundSize = "40px";
+        ll3.style.backgroundSize = "45px";
     }
 }
 function lifeLines(){
