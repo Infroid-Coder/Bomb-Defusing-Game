@@ -1,4 +1,3 @@
-
 let pswValue, random, psw;
 function pswGen(){
     let abc = "1234567890";
@@ -21,7 +20,6 @@ function pswGen(){
         pswValue = document.getElementById("psw").innerHTML;
     }
 }
-document.onload = pswGen();
 
 let maxTime = 20;
 let interval = setInterval(timer, 1000);
@@ -29,8 +27,7 @@ let interval = setInterval(timer, 1000);
 function timer(){
     let otpt = document.getElementById("timer");
     let img = document.getElementById("img");
-    let form = document.getElementById("enter");
-    let psw = document.getElementById("psw")
+    let form = document.getElementById("psw");
     let mQ1 = window.matchMedia("(max-width: 445px)");
     let mQ2 = window.matchMedia("(max-width: 400px)");
     let mQ3 = window.matchMedia("(max-width: 360px)");
@@ -42,8 +39,6 @@ function timer(){
         img.src = "Exploded.png";
         img.style.marginLeft = "5px";
         img.style.width = "280px";
-        form.style.display = "none";
-        psw.style.display = "none";
 
         if(mQ1.matches){
             img.style.width = "210px";
@@ -63,8 +58,6 @@ function timer(){
             img.src = "Bomb.gif";
             img.style.marginLeft = "60px";
             img.style.width = "300px";
-            form.style.display = "inline-block";
-            psw.style.display = "inline-block";
             if(mQ1.matches){
                 img.style.width = "250px";
             }
@@ -85,11 +78,30 @@ function timer(){
 }
 
 let input = document.getElementById("enter");
+let scoreOtpt = document.getElementById("scr");
+localStorage.score = 0;
 input.onkeyup = function(){
     if(input.value == pswValue){
-        alert("Bomb Defused");
+        document.getElementById("stat").innerHTML = "Bomb Defused";
         input.value = "";
         pswGen();
-        maxTime = 21;
+        setTimeout(function(){
+            document.getElementById("stat").innerHTML = "";
+        },1000);
+            if(maxTime >= 15){
+                localStorage.score = Number(localStorage.score) + 10;
+            }
+            if(maxTime >= 10 && maxTime < 15){
+                localStorage.score = Number(localStorage.score) + 8;
+            }
+            if(maxTime >= 5 && maxTime < 10){
+                localStorage.score = Number(localStorage.score) + 6;
+            }
+            if(maxTime < 5){
+                localStorage.score = Number(localStorage.score) + 5;
+            }
+            scoreOtpt.innerHTML = localStorage.score;
+            maxTime = 21;
     }
 }
+scoreOtpt.innerHTML = localStorage.score;
