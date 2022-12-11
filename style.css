@@ -99,11 +99,11 @@ body{
 } */
 #overlay1{
     display: inline-block;
-    width: 50px;
-    height: 40px;
+    width: 60px;
+    height: 45px;
     background:url("Life line1.png");
     background-repeat: no-repeat;
-    background-size: 40px;
+    background-size: 45px;
     margin-top: 5px;
     border-radius: 5px;
     cursor: pointer;
@@ -111,11 +111,11 @@ body{
 }
 #overlay2{
     display: inline-block;
-    width: 50px;
-    height: 40px;
+    width: 60px;
+    height: 45px;
     background:url("Life line2.png");
     background-repeat: no-repeat;
-    background-size: 40px;
+    background-size: 45px;
     margin-top: 5px;
     border-radius: 5px;
     cursor: pointer;
@@ -123,24 +123,15 @@ body{
 }
 #overlay3{
     display: inline-block;
-    width: 50px;
-    height: 40px;
+    width: 60px;
+    height: 45px;
     background:url("Life line3.png");
     background-repeat: no-repeat;
-    background-size: 40px;
+    background-size: 45px;
     margin-top: 5px;
     border-radius: 5px;
     cursor: pointer;
     border: solid 2px white;
-}
-#bg1{
-    display: inline-block;
-}
-#bg2{
-    display: inline-block;
-}
-#bg3{
-    display: inline-block;
 }
 #overlay1:hover,#overlay2:hover,#overlay3:hover{
     border: solid 2px rgb(60, 255, 0);
