@@ -27,7 +27,8 @@ let interval = setInterval(timer, 1000);
 function timer(){
     let otpt = document.getElementById("timer");
     let img = document.getElementById("img");
-    let form = document.getElementById("psw");
+    let psw = document.getElementById("psw");
+    let form = document.getElementById("enter");
     let mQ1 = window.matchMedia("(max-width: 445px)");
     let mQ2 = window.matchMedia("(max-width: 400px)");
     let mQ3 = window.matchMedia("(max-width: 360px)");
@@ -38,16 +39,18 @@ function timer(){
         document.getElementById("stat").innerHTML = "Bomb Exploded";
         img.src = "Exploded.png";
         img.style.marginLeft = "5px";
-        img.style.width = "280px";
+        img.style.width = "380px";
+        psw.style.display = "none";
+        form.style.display = "none";
 
         if(mQ1.matches){
-            img.style.width = "210px";
+            img.style.width = "270px";
         }
         if(mQ2.matches){
-            img.style.width = "160px";
+            img.style.width = "220px";
         }
         if(mQ3.matches){
-            img.style.width = "150px";
+            img.style.width = "210px";
         }
         setTimeout(function(){
             otpt.innerHTML = "00:20";
@@ -58,6 +61,8 @@ function timer(){
             img.src = "Bomb.gif";
             img.style.marginLeft = "60px";
             img.style.width = "300px";
+            psw.style.display = "inline-block";
+            form.style.display = "inline-block";
             if(mQ1.matches){
                 img.style.width = "250px";
             }
