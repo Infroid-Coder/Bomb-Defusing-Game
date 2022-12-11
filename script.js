@@ -79,7 +79,7 @@ function timer(){
 
 let input = document.getElementById("enter");
 let scoreOtpt = document.getElementById("scr");
-localStorage.score = 0;
+localStorage.score;
 input.onkeyup = function(){
     if(input.value == pswValue){
         document.getElementById("stat").innerHTML = "Bomb Defused";
@@ -105,3 +105,6 @@ input.onkeyup = function(){
     }
 }
 scoreOtpt.innerHTML = localStorage.score;
+if(localStorage.score == undefined){
+    localStorage.score = 0;
+}
