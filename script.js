@@ -1,9 +1,9 @@
 let pswValue, random, psw;
+let pswLength = 6;
 let scoreOtpt = document.getElementById("scr");
 localStorage.score;
 function pswGen(){
     let abc = "1234567890";
-    let pswLength = 6;
 
     if(document.getElementById("psw").innerHTML == ""){
         for(let i = 0; i < pswLength; i++){
@@ -23,7 +23,8 @@ function pswGen(){
     }
 }
 
-let maxTime = 21;
+let secs = 21;
+let mins = "00";
 let interval = setInterval(timer, 1000);
 
 function timer(){
@@ -35,10 +36,10 @@ function timer(){
     let mQ2 = window.matchMedia("(max-width: 400px)");
     let mQ3 = window.matchMedia("(max-width: 360px)");
 
-    maxTime = maxTime - 1;
-    if(maxTime == 0){
+    secs = secs - 1;
+    if(secs == 0){
         clearInterval(interval);
-        document.getElementById("stat").innerHTML = "Bomb Exploded";
+        document.getElementById("stat").innerHTML = "Status: Bomb Exploded";
         img.src = "Exploded.png";
         img.style.marginLeft = "5px";
         img.style.width = "380px";
@@ -64,8 +65,8 @@ function timer(){
         }
         setTimeout(function(){
             otpt.innerHTML = "00:20";
-            document.getElementById("stat").innerHTML = "";
-            maxTime = 21;
+            document.getElementById("stat").innerHTML = "Status: ";
+            secs = 21;
             interval = setInterval(timer, 1000);
             pswGen();
             img.src = "Bomb.gif";
@@ -84,45 +85,51 @@ function timer(){
             }
         }, 5000)
     }
-    if(maxTime < 10){
-        maxTime = "0" + maxTime;
+    if(secs < 10){
+        secs = "0" + secs;
     }
-
-    otpt.innerHTML = "00:" + maxTime;
+    if(secs > 60){
+        mins = Number(mins) + 1;
+        secs = secs - 60;
+        if(Number(mins) < 10){
+            mins = "0" + mins;
+        }
+    }
+    otpt.innerHTML = mins + ":" + secs;
 
 }
 
 let input = document.getElementById("enter");
 input.onkeyup = function(){
     if(input.value == pswValue){
-        document.getElementById("stat").innerHTML = "Bomb Defused";
+        document.getElementById("stat").innerHTML = "Status: Bomb Defused";
         input.value = "";
         pswGen();
         setTimeout(function(){
-            document.getElementById("stat").innerHTML = "";
+            document.getElementById("stat").innerHTML = "Status: ";
         },1000);
-            if(maxTime >= 15){
+            if(secs >= 15){
                 localStorage.score = Number(localStorage.score) + 10;
                 GrayOutLL();
                 Harden();
             }
-            if(maxTime >= 10 && maxTime < 15){
+            if(secs >= 10 && secs < 15){
                 localStorage.score = Number(localStorage.score) + 8;
                 GrayOutLL();
                 Harden();
             }
-            if(maxTime >= 5 && maxTime < 10){
+            if(secs >= 5 && secs < 10){
                 localStorage.score = Number(localStorage.score) + 6;
                 GrayOutLL();
                 Harden();
             }
-            if(maxTime < 5){
+            if(secs < 5){
                 localStorage.score = Number(localStorage.score) + 5;
                 GrayOutLL();
                 Harden();
             }
             scoreOtpt.innerHTML = localStorage.score;
-            maxTime = 21;
+            secs = 21;
             Harden();
     }
 }
@@ -184,7 +191,7 @@ function GrayOutLL(){
 function lifeLines(){
     ll1.onclick = function(){
         if(Number(localStorage.score) >= 100){
-            maxTime = maxTime + 4;
+            secs = secs + 4;
             localStorage.score = Number(localStorage.score) - 100;
             scoreOtpt.innerHTML = localStorage.score;
             GrayOutLL();
@@ -192,7 +199,7 @@ function lifeLines(){
     }
     ll2.onclick = function(){
         if(Number(localStorage.score) >= 200){
-            maxTime = maxTime + 6;
+            secs = secs + 6;
             localStorage.score = Number(localStorage.score) - 200;
             scoreOtpt.innerHTML = localStorage.score;    
             GrayOutLL();
@@ -200,7 +207,7 @@ function lifeLines(){
     }
     ll3.onclick = function(){
         if(Number(localStorage.score) >= 300){
-            maxTime = maxTime + 11;
+            secs = secs + 11;
             localStorage.score = Number(localStorage.score) - 300;
             scoreOtpt.innerHTML = localStorage.score;
             GrayOutLL();
@@ -208,16 +215,42 @@ function lifeLines(){
     }
 }
 function Harden(){
+    if(localStorage.score >= 200){
+        pswLength = 7;
+    }
     if(localStorage.score >= 300){
-        maxTime = 20;
+        secs = 20;
     }
     if(localStorage.score >= 400){
-        maxTime = 19;
+        secs = 19;
     }
     if(localStorage.score >= 500){
-        maxTime = 18;
+        pswLength = 8;
+    }
+    if(localStorage.score >= 1000){
+        pswLength = 7;
+        secs = 18;
     }
 }
+let t = "-1";
+function Pause(){
+    let trigger = document.getElementById("overlay4");
+    let pauseScr = document.getElementById("paused");
+
+    pauseScr.style.display = "block";
+    clearInterval(interval);
+    document.getElementById("img").src = "BombP.png";
+    t = "1";
+}
+if(t === "-1"){
+    document.getElementById("paused").onclick = function(){
+        document.getElementById("paused").style.display = "none";
+        t = "1";
+        interval = setInterval(timer, 1000);
+        document.getElementById("img").src = "Bomb.gif";
+    }
+}
+
 lifeLines();
 GrayOutLL();
 Harden();
