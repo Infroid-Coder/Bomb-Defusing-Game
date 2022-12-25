@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <!-- <script src="https://kit.fontawesome.com/bdfb0077f4.js" crossorigin="anonymous"></script> -->
+    <title>BDG | Instructions</title>
+</head>
+<body>
+    <div id="ins-grid">
+        <div id="ins-div" class="lifelines">
+            <h2 id="ins-t">Life lines</h2>
+            <p id="ins">
+                There are 3 lifelines you can use in this game.
+                <br>
+                <span id="x"></span>
+                <br>
+                Lifeline 1 adds 3 seconds to your <u id="t">timer</u>.<br>
+                Lifeline 2 adds 5 seconds to your <u id="t">timer</u>.<br>
+                Lifeline 3 adds 10 seconds to your <u id="t">timer</u>.<br>
+                <span class="more" id="more"><br>Each of these lifelines reduce your <u id="s">score</u> by a 
+                certain amount. The lifeline 1 reduces 100 from your <u id="s">score</u>. Lifeline 2 reduces 
+                200 from your <u id="s">score</u>. Lifeline 3 reduces 300 from your <u id="s">score</u>.</span>
+                <span id="rm">Read More...</span>
+            </p>
+        </div>
+        <div id="ins-div" class="score">
+            <h2 id="ins-t">Score</h2>
+            <p id="ins">The maximum
+                <span class="more" id="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero 
+                natus deleniti voluptas quis, adipisci aliquam minus! Hic, exercitationem veritatis pariatur 
+                non repudiandae eum in laborum praesentium voluptates? Iste, deleniti neque!</span>
+                <span id="rm">Read More...</span>
+            </p>
+        </div>
+        <div id="ins-div" class="timer">
+            <h2 id="ins-t">The Timer</h2>
+            <p id="ins">The timer is set to 20 seconds as the default setting. But you can get more time 
+                using the provided <u id="l">lifelines</u>. When the timer reaches 0 the bomb explodes. Then you 
+                will lose 5 from your score.
+                <span class="more" id="more"></span>
+                <span id="rm">Read More...</span>
+            </p>
+        </div>
+        <div id="ins-div" class="lifelines">
+            <h2 id="ins-t">Life lines</h2>
+            <p id="ins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus deleniti voluptas 
+                quis, adipisci aliquam minus! Hic, exercitationem veritatis pariatur non repudiandae eum in 
+                laborum praesentium voluptates? Iste, deleniti neque!
+                <span class="more" id="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero 
+                natus deleniti voluptas quis, adipisci aliquam minus! Hic, exercitationem veritatis pariatur 
+                non repudiandae eum in laborum praesentium voluptates? Iste, deleniti neque!</span>
+                <span id="rm">Read More...</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let more = document.querySelectorAll("#more");
+        let trigger = document.querySelectorAll("#rm");
+
+        for(let i = 0; i < more.length; i++){
+            trigger[i].onclick = function(){
+                if(more[i].className == "more"){
+                    more[i].className = "more1";
+                    trigger[i].innerHTML = "Read Less...";
+                }  else{
+                    more[i].className = "more";
+                    trigger[i].innerHTML = "Read More...";
+                }
+            }
+        }
+        document.getElementById("x").innerHTML = '<div id="ins-img1"><div>1</div></div>'+
+                                                '<div id="ins-img2"><div>2</div></div>'+
+                                                '<div id="ins-img3"><div>3</div></div>'
+    </script>
+    <script src="links.js"></script>
+</body>
+</html>
